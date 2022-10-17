@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Materialize CSS -->
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>CRUD Libros</title>
+  </head>
+  <body bgcolor="#C7F2A4">
+    <nav class="light-green darken-3">
+        <div class="card-title">&nbsp; Libros</div>
+      </nav>
+
+    <div class="container">
+      <br>
+        <a href="/create" class="waves-effect light-green lighten-1 btn"><i class='bx bx-list-plus bx-md'></i></a> 
+    </div>
+    <table class="striped centered" >
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Editorial</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach((libros)=> { %>
+
+            <tr>
+                <td><%= libros.lib_id %></td>
+                <td><%= libros.lib_nombre %></td>
+                <td><%= libros.lib_autor %></td>
+                <td><%= libros.lib_editorial %></td>
+                <td><%= libros.lib_descripcion %></td>
+                <td>
+                    <a href="/edit/<%= libros.lib_id %>" class="waves-effect light-green lighten-1 btn"><i class='bx bxs-edit bx-md'></i></a>
+                </td>
+                <td>
+                    <a href="/delete/<%= libros.lib_id %>" class="waves-effect light-green lighten-1 btn">
+                      <i class='bx bxs-trash bx-tada bx-rotate-90 bx-md'></i>
+                    </a>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+
+   
+
+  </body>
+</html>
